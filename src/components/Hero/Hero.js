@@ -1,10 +1,11 @@
 import styles from "./Hero.module.scss";
 import PropTypes from "prop-types";
+import parse from "html-react-parser";
 
 function Hero(props) {
   return (
     <header className={styles.component}>
-      <h2 className={styles.title}>{props.title}</h2>
+      <h2 className={styles.title}>{parse(props.title)}</h2>
       <img
         className={styles.image}
         src={props.image}
