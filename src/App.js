@@ -1,15 +1,22 @@
 import styles from "./App.module.scss";
-import List from "./components/List/List";
-import { pageContents, listData } from "./data/dataStore.js";
+import PropTypes from "prop-types";
+import ListContainer from "./components/List/ListContainer.js";
 
-function App() {
+function App(props) {
+  const { title, subtitle, lists } = props;
   return (
     <main className={styles.component}>
-      <h1 className={styles.title}>{pageContents.title}</h1>
-      <h2 className={styles.subtitle}>{pageContents.subtitle}</h2>
-      <List {...listData} />
+      <h1 className={styles.title}>{title}</h1>
+      <h2 className={styles.subtitle}>{subtitle}</h2>
+      {lists.map(listData => (<ListContainer key={listData.id} {...listData} />))}
     </main>
   );
 }
+
+App.propTypes = {
+  title: PropTypes.node,
+  subtitle: PropTypes.node,
+  lists: PropTypes.array,
+};
 
 export default App;

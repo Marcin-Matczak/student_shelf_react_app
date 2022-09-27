@@ -3,7 +3,8 @@ import styles from "./Card.module.scss";
 import PropTypes from "prop-types";
 
 function Card(props) {
-  return <p className={styles.component}>{props.title}</p>;
+  const { title } = props;
+  return <p className={styles.component}>{title}</p>;
 }
 
 Card.propTypes = {
