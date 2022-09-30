@@ -1,9 +1,19 @@
 import PropTypes from "prop-types";
 import styles from "./Container.module.scss";
+import { motion } from "framer-motion";
 
 function Container(props) {
   const { children } = props;
-  return <div className={styles.component}>{children}</div>;
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className={styles.component}
+    >
+      {children}
+    </motion.div>
+  );
 }
 
 Container.propTypes = {

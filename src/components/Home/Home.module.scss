@@ -1,5 +1,8 @@
 @import "/src/styles/settings.scss";
 
+body {
+  overflow: hidden; /* Hide scrollbars */
+}
 
 .component {
   padding: $base-size;
